@@ -12,8 +12,8 @@
 <div class="topcoat-list__container scroller" style="top:138px;">
     <ul class="topcoat-list list">
         <li ng-repeat="t in trackCodeArray track by $id($index)" class="topcoat-list__item">
-            <a ng-click="go('/employees/' + {{t.code}})">
-            
+            <a ng-click="go('/trackcodes/' + {{t.code}})">
+
                 <p>{{t.code}} </p>
                 <span class="chevron" ng-click="deleteTrackCode($index)" style="cursor:pointer"></span>
             </a>
