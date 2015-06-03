@@ -47,7 +47,7 @@ angular.module('myApp.controllers', [])
 
         $scope.trackCodeCode = $routeParams.code;
 
-        $scope.trackURL = $sce.trustAsResourceUrl('http://server2.locanix.net/TrackingTool/?t=' + $routeParams.code);
+        $scope.trackURL = $sce.trustAsResourceUrl('http://server' + $routeParams.code.charAt(0) + '.locanix.net/TrackingTool/?t=' + $routeParams.code);
     }])
     .controller('ReportListCtrl', ['$scope', '$routeParams', 'Report', function ($scope, $routeParams, Report) {
         $scope.employees = Report.query({ employeeId: $routeParams.employeeId });
