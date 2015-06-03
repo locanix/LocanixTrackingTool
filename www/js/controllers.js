@@ -20,13 +20,18 @@ angular.module('myApp.controllers', [])
         $scope.trackCodeArray = [];
 
         $scope.addTrackCode = function () {
-            $scope.trackCodeArray.push({ code: "'" + $scope.trackCode + "'" });
+            if ($scope.trackCode == '') {
+                alert("Please enter code.");
+            }
+            else {
 
-            $scope.trackCode = ''; //clear the input after adding
-            localStorage.setItem('trackCodeArray', JSON.stringify($scope.trackCodeArray));
+                $scope.trackCodeArray.push({ code: "'" + $scope.trackCode + "'" });
 
-            $scope.trackCodeArray = JSON.parse(localStorage.getItem('trackCodeArray'));
+                $scope.trackCode = ''; //clear the input after adding
+                localStorage.setItem('trackCodeArray', JSON.stringify($scope.trackCodeArray));
 
+                $scope.trackCodeArray = JSON.parse(localStorage.getItem('trackCodeArray'));
+            }
         }
         $scope.trackCodeArray = (localStorage.getItem('trackCodeArray') !== null) ? JSON.parse(localStorage.getItem('trackCodeArray')) : [];
 
